@@ -3,4 +3,4 @@
 ## 1. Para la ejecución incial del proyecto
 
 - python manage.py migrate
-- python manage.py migrate
+- python manage.py runserver
