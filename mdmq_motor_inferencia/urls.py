@@ -26,5 +26,7 @@ urlpatterns = [
     path("inicio/", motorInferencia.views.index, name="inicio"),
     path("hola-mundo/", motorInferencia.views.hola_mundo, name="hola_mundo"),
     path("pagina-pruebas/", motorInferencia.views.pagina, name="pagina"),
-    path("contacto/<str:nombre>", motorInferencia.views.contacto, name="contacto"),
+    path("contacto/", motorInferencia.views.contacto, name="contacto"),
+    path("contacto/<str:nombre>/", motorInferencia.views.contacto, name="contacto"),
+    path("contacto/<str:nombre>/<str:apellido>/", motorInferencia.views.contacto, name="contacto"),
 ]
