@@ -17,6 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Importar app con mis vistas
+import motorInferencia.views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("", motorInferencia.views.index, name="index"),
+    path("inicio/", motorInferencia.views.index, name="inicio"),
+    path("hola-mundo/", motorInferencia.views.hola_mundo, name="hola_mundo"),
+    path("pagina-pruebas/", motorInferencia.views.pagina, name="pagina"),
 ]
