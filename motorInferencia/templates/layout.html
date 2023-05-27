@@ -8,6 +8,12 @@
       {% block title %} <!-- Código que viene de templates --> {% endblock %} |
       Cristian Tapia
     </title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}"
+    />
   </head>
   <body>
     <h1>Sitio Web con Django | Cristian Tapia</h1>
