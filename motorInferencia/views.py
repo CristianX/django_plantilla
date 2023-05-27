@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
 
@@ -52,7 +52,10 @@ def hola_mundo(request):
     )
 
 
-def pagina(request):
+def pagina(request, redirigir=0):
+    if redirigir == 1:
+        return redirect("contacto", nombre="Cristian", apellido="Tapia")
+
     return HttpResponse(
         layout
         + """
