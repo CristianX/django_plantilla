@@ -24,11 +24,13 @@ layout = """
 
 
 def index(request):
-    html = """
+    """
+    html = ""
         <h1>Motor de inferencia</h1>
         <p>Años hasta el 2050: </p>
         <ul>
-    """
+    ""
+
     year = 2021
 
     while year <= 2050:
@@ -38,6 +40,10 @@ def index(request):
         year += 1
 
     html += "</ul>"
+    """
+
+    year = 2021
+    hasta = range(year, 2051)
 
     nombre = "Cristian Tapia"
     lenguajes = ["JavaScript", "Python", "PHP", "C"]
@@ -51,6 +57,7 @@ def index(request):
             "mi_variable": "código que está en la vista",
             "nombre": nombre,
             "lenguajes": lenguajes,
+            "years": hasta,
         },
     )
 

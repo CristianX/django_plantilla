@@ -24,4 +24,15 @@
 </ul>
 
 <p>Años hasta el 2050:</p>
+
+<ul>
+    {% for year in years %}
+        {% if year|divisibleby:2 == True %}
+            <li>{{ year }}</li>
+        {% endif %}
+    {% empty %}
+        <p>NO HAY AÑOS QUE MOSTRAR</p>
+    {% endfor %}
+</ul>
+
 {% endblock %}
