@@ -77,3 +77,30 @@ nav ul li a:hover{
     color: white;
     transition: all 300ms;
 }
+
+.barra{
+    width: 1250px;
+    margin: 0 auto;
+    margin-bottom: 140px;
+}
+
+.esquina-izquierda{
+    display: block;
+    border-left: 20px solid transparent;
+    border-top: 10px solid #2b2f30;
+    float: left
+}
+.esquina-derecha{
+    display: block;
+    border-right: 20px solid transparent;
+    border-top: 10px solid #2b2f30;
+    float: right
+}
+
+.relleno-barra{
+    display: block;
+    width: 1210px;
+    height: 10px;
+    background: #2b2f30;
+    float: left;
+}
