@@ -16,31 +16,39 @@
     />
   </head>
   <body>
-    <h1>Sitio Web con Django | Cristian Tapia</h1>
-    <hr />
-    <ul>
-      <li>
-        <a href="/inicio">Inicio</a>
-      </li>
-      <li>
-        <a href="/hola-mundo">Hola Mundo</a>
-      </li>
-      <li>
-        <a href="/pagina-pruebas">Pagina de pruebas</a>
-      </li>
-      <li>
-        <a href="/contacto">Contacto</a>
-      </li>
-    </ul>
-    <hr />
+    <!-- Cabecera de la pagina -->
+    <header>
+      <div id="logotipo">
+        <!-- logo adjunto -->
+        <img src="{% static 'images/logo.png' %}" />
+        <h1>Sitio Web con Django</h1>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="/inicio">Inicio</a>
+        </li>
+        <li>
+          <a href="/hola-mundo">Hola Mundo</a>
+        </li>
+        <li>
+          <a href="/pagina-pruebas">Pagina de pruebas</a>
+        </li>
+        <li>
+          <a href="/contacto">Contacto</a>
+        </li>
+      </ul>
+    </nav>
 
     <div id="content">
+      <h2 class="title">Titulo prueba</h2>
       {% block content %}
       <!-- Código que viene de templates -->
       <strong>Contenido del bloque original!!!</strong>
       {% endblock %}
     </div>
-    <hr />
     <footer>Master en Python &copy; Cristian Tapia</footer>
   </body>
 </html>
