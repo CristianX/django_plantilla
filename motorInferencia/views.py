@@ -41,6 +41,7 @@ def index(request):
 
     nombre = "Cristian Tapia"
     lenguajes = ["JavaScript", "Python", "PHP", "C"]
+    # lenguajes = []
 
     return render(
         request,
