@@ -1,6 +1,19 @@
 {% extends 'layout.html' %} 
 {% block title %} Motor de inferencia {% endblock %}
 {% block content %}
-<h1 class="title">Motor de inferencia</h1>
+
+{% comment %} Nota para el comentario {% endcomment %}
+<h1 class="title">{{ title }}</h1>
+
+<p>{{ mi_variable }}</p>
+
+{% if  nombre and nombre == "Cristian Tapia" %}
+    <p>{{ nombre }}</p>
+
+{% else %}
+    <strong>El nombre no existe o no coincide</strong>
+
+{% endif %}
+
 <p>Años hasta el 2050:</p>
 {% endblock %}

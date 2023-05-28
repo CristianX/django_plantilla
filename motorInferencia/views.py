@@ -39,7 +39,17 @@ def index(request):
 
     html += "</ul>"
 
-    return render(request, "index.html")
+    nombre = "Cristian Tapia"
+
+    return render(
+        request,
+        "index.html",
+        {
+            "title": "Motor de Inferencia",
+            "mi_variable": "código que está en la vista",
+            "nombre": nombre,
+        },
+    )
 
 
 def hola_mundo(request):
