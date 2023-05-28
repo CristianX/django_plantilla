@@ -40,6 +40,7 @@ def index(request):
     html += "</ul>"
 
     nombre = "Cristian Tapia"
+    lenguajes = ["JavaScript", "Python", "PHP", "C"]
 
     return render(
         request,
@@ -48,6 +49,7 @@ def index(request):
             "title": "Motor de Inferencia",
             "mi_variable": "código que está en la vista",
             "nombre": nombre,
+            "lenguajes": lenguajes,
         },
     )
 
