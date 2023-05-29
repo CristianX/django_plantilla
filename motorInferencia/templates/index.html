@@ -2,16 +2,17 @@
 {% block title %} Motor de inferencia {% endblock %}
 {% block content %}
 
+
 {% comment %} Nota para el comentario {% endcomment %}
 <h1 class="title">{{ title }}</h1>
 
 <p>{{ mi_variable }}</p>
 
 {% if  nombre and nombre == "Cristian Tapia" %}
-    <p>{{ nombre }}</p>
+<p>{{ nombre }}</p>
 
 {% else %}
-    <strong>El nombre no existe o no coincide</strong>
+<strong>El nombre no existe o no coincide</strong>
 {% endif %}
 
 <h3>Listado de Lenguajes de Programación</h3>
@@ -19,20 +20,13 @@
     {% for lenguaje in lenguajes %}
     <li>{{ forloop.counter }} . {{ lenguaje }}</li>
     {% empty %}
-        <p>NO HAY LENGUAJES QUE MOSTRAR</p>
+    <p>NO HAY LENGUAJES QUE MOSTRAR</p>
     {% endfor %}
 </ul>
 
-<p>Años hasta el 2050:</p>
 
-<ul>
-    {% for year in years %}
-        {% if year|divisibleby:2 == True %}
-            <li>{{ year }}</li>
-        {% endif %}
-    {% empty %}
-        <p>NO HAY AÑOS QUE MOSTRAR</p>
-    {% endfor %}
-</ul>
+
+{% comment %} {% include "fecha_actual.html" with saludo="Hola mundo desde plantilla" only%} {% endcomment %}
+{% include "fecha_actual.html" with saludo="Hola mundo desde plantilla" %}
 
 {% endblock %}
