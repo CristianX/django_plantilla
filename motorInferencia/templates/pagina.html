@@ -8,5 +8,14 @@
 
 {% block content %}
 <h1 class="title">Página de mi WEB</h1>
-<h3>Creado por Cristian Tapia</h3>
+<p>{{ "Creado por Cristian Tapia ñññ"|cut:"ñ" }}</p>
+
+{{ texto|default:"no hay nada" }}
+<p>{{ lista|join:', ' }}</p>
+<p>{{ lista|length }}</p>
+<p>{{ lista|random }}</p>
+<p>{{ "texto pruebas"|length }}</p>
+<p>{{ "texto pruebas"|upper }}</p>
+<p>{{ "Texto pruebas"|lower }}</p>
+<p>{{ "<h1>Texto</h1> <strong>pruebas</strong> hola <p> mundo</p>"|striptags|wordcount }}</p>
 {% endblock %}
