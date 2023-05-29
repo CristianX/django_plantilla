@@ -18,4 +18,8 @@
 <p>{{ "texto pruebas"|upper }}</p>
 <p>{{ "Texto pruebas"|lower }}</p>
 <p>{{ "<h1>Texto</h1> <strong>pruebas</strong> hola <p> mundo</p>"|striptags|wordcount }}</p>
+
+{% load filters %}
+{{ "Cristian"|saludo|safe }}
+
 {% endblock %}
