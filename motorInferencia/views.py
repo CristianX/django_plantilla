@@ -138,6 +138,9 @@ def articulos(request):
     # articulos = Article.objects.filter(title__contains="articulo")
     # articulos = Article.objects.filter(title__iexact="articulo")
 
+    # Consultas sql
+    articulos = Article.objects.raw("SELECT * FROM motorInferencia_article WHERE title = 'Articulo 2' and public = 0")
+
     return render(request, "articulos.html", {"articulos": articulos})
 
 
