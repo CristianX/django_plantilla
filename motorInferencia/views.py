@@ -152,13 +152,13 @@ def borrar_articulo(request, id):
 
 
 def save_article(request):
-    if request.method == "GET":
-        title = request.GET["title"]
+    if request.method == "POST":
+        title = request.POST["title"]
         if len(title) <= 5:
             return HttpResponse("El título es muy pequeño")
 
-        content = request.GET["content"]
-        public = request.GET["public"]
+        content = request.POST["content"]
+        public = request.POST["public"]
 
         articulo = Article(title=title, content=content, public=public)
         articulo.save()
