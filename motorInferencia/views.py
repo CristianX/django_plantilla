@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from motorInferencia.models import Article
+from django.db.models import Q
 
 # Create your views here.
 
@@ -130,16 +131,20 @@ def articulos(request):
     articulos = Article.objects.filter(id__lte=7, title__contains="articulo")
 
     articulos = Article.objects.filter(
-        title = "Articulo",
-    ).exclude(
-        public = False
+        Q(title__contains = "2") | Q(public = True)
     )
+
+    # articulos = Article.objects.filter(
+    #     title = "Articulo",
+    # ).exclude(
+    #     public = False
+    # )
 
     # articulos = Article.objects.filter(title__contains="articulo")
     # articulos = Article.objects.filter(title__iexact="articulo")
 
     # Consultas sql
-    articulos = Article.objects.raw("SELECT * FROM motorInferencia_article WHERE title = 'Articulo 2' and public = 0")
+    # articulos = Article.objects.raw("SELECT * FROM motorInferencia_article WHERE title = 'Articulo 2' and public = 0")
 
     return render(request, "articulos.html", {"articulos": articulos})
 
