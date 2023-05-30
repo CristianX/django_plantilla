@@ -124,22 +124,22 @@ def editar_articulo(request, id):
 def articulos(request):
     # articulos = Article.objects.order_by('-title')[:3]
     # articulos = Article.objects.order_by('-title')[3:7]
-    articulos = Article.objects.all()
+    articulos = Article.objects.all().order_by("-id")
 
-    articulos = Article.objects.filter(id__gte=7)
-    articulos = Article.objects.filter(id__lte=7, title__contains="articulo")
+    # articulos = Article.objects.filter(id__gte=7)
+    # articulos = Article.objects.filter(id__lte=7, title__contains="articulo")
 
-    articulos = Article.objects.filter(
-        title = "Articulo",
-    ).exclude(
-        public = False
-    )
+    # articulos = Article.objects.filter(
+    #     title="Articulo",
+    # ).exclude(public=False)
 
-    # articulos = Article.objects.filter(title__contains="articulo")
-    # articulos = Article.objects.filter(title__iexact="articulo")
+    # # articulos = Article.objects.filter(title__contains="articulo")
+    # # articulos = Article.objects.filter(title__iexact="articulo")
 
-    # Consultas sql
-    articulos = Article.objects.raw("SELECT * FROM motorInferencia_article WHERE title = 'Articulo 2' and public = 0")
+    # # Consultas sql
+    # articulos = Article.objects.raw(
+    #     "SELECT * FROM motorInferencia_article WHERE title = 'Articulo 2' and public = 0"
+    # )
 
     return render(request, "articulos.html", {"articulos": articulos})
 
@@ -149,3 +149,25 @@ def borrar_articulo(request, id):
     articulo.delete()
 
     return redirect("articulos")
+
+
+def save_article(request):
+    if request.method == "GET":
+        title = request.GET["title"]
+        if len(title) <= 5:
+            return HttpResponse("El título es muy pequeño")
+
+        content = request.GET["content"]
+        public = request.GET["public"]
+
+        articulo = Article(title=title, content=content, public=public)
+        articulo.save()
+        return HttpResponse(
+            f"Articulo Creado: <strong>{articulo.title}</strong> - {articulo.content}"
+        )
+    else:
+        return HttpResponse("<h2>No se ha podido crear el artículo</h2>")
+
+
+def create_article(request):
+    return render(request, "create_article.html")

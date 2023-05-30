@@ -34,6 +34,9 @@
           <a href="{% url 'articulos' %}">Artículos</a>
         </li>
         <li>
+          <a href="{% url 'create' %}">Crear Artículo</a>
+        </li>
+        <li>
           <a href="{% url 'hola_mundo' %}">Hola Mundo</a>
         </li>
         <li>
@@ -58,7 +61,11 @@
         {% endblock %}
       </div>
     </div>
-    {% comment %} <footer>Master en Python &copy; Cristian Tapia - {% now "d/m/Y h:m:s" %}</footer> {% endcomment %}
+    {% comment %}
+    <footer>
+      Master en Python &copy; Cristian Tapia - {% now "d/m/Y h:m:s" %}
+    </footer>
+    {% endcomment %}
     <footer>Master en Python &copy; Cristian Tapia - {% now "d/m/Y" %}</footer>
   </body>
 </html>
