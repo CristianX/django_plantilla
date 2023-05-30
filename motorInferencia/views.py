@@ -95,3 +95,13 @@ def crear_articulo(request, title, content, public):
     return HttpResponse(
         f"Articulo Creado: <strong>{articulo.title}</strong> - {articulo.content}"
     )
+
+
+def articulo(request):
+    try:
+        articulo = Article.objects.get(title="Superman", public=False)
+        response = f"Articulo: <br/>{articulo.id}. {articulo.title}"
+    except:
+        response = "<h1>Artículo no encontrado</h1>"
+
+    return HttpResponse(response)
