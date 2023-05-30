@@ -129,6 +129,12 @@ def articulos(request):
     articulos = Article.objects.filter(id__gte=7)
     articulos = Article.objects.filter(id__lte=7, title__contains="articulo")
 
+    articulos = Article.objects.filter(
+        title = "Articulo",
+    ).exclude(
+        public = False
+    )
+
     # articulos = Article.objects.filter(title__contains="articulo")
     # articulos = Article.objects.filter(title__iexact="articulo")
 
