@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from motorInferencia.models import Article
 
 # Create your views here.
 
@@ -84,3 +85,13 @@ def contacto(request, nombre="", apellido=""):
         html += f"<h3>{nombre} {apellido}</h3>"
 
     return HttpResponse(layout + f"<h2>Contacto</h2>" + html)
+
+
+def crear_articulo(request):
+    articulo = Article(
+        title="Primer Articulo", content="Contenido del articulo", public=True
+    )
+
+    articulo.save()
+
+    return HttpResponse("Articulo Creado: ")

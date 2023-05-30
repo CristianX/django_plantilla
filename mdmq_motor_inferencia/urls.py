@@ -30,4 +30,5 @@ urlpatterns = [
     path("contacto/", motorInferencia.views.contacto, name="contacto"),
     path("contacto/<str:nombre>/", motorInferencia.views.contacto, name="contacto"),
     path("contacto/<str:nombre>/<str:apellido>/", motorInferencia.views.contacto, name="contacto"),
+    path("crear-articulo/", motorInferencia.views.crear_articulo, name="crear_articulo"),
 ]
