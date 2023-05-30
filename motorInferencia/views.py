@@ -123,6 +123,13 @@ def editar_articulo(request, id):
 
 def articulos(request):
     # articulos = Article.objects.order_by('-title')[:3]
-    articulos = Article.objects.order_by('-title')[3:7]
+    # articulos = Article.objects.order_by('-title')[3:7]
+    articulos = Article.objects.all()
 
     return render(request, "articulos.html", {"articulos": articulos})
+
+def borrar_articulo(request, id):
+    articulo = Article.objects.get(pk=id)
+    articulo.delete()
+
+    return redirect('articulos')
