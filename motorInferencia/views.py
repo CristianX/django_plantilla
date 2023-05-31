@@ -178,6 +178,29 @@ def create_article(request):
 
 def create_full_article(request):
 
+    if request.method == 'POST':
+        formulario = FormArticle(request.POST)
+
+        if formulario.is_valid():
+            data_form = formulario.cleaned_data
+
+            title = data_form.get('title')
+            content = data_form['content']
+            public = data_form['public']
+
+            articulo = Article(
+                title = title,
+                content = content,
+                public = public
+            )
+
+            articulo.save()
+
+            return redirect('articulos')
+            # return HttpResponse(f"Articulo Creado: <strong>{articulo.title}</strong> - {articulo.content}")
+    else:
+        formulario = FormArticle()
+
     formulario = FormArticle()
     return render(request, 'create_full_article.hmtl', {
         'form': formulario

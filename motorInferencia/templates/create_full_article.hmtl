@@ -10,7 +10,7 @@
 
 <h1 class="title">Formularios en Django</h1>
 
-<form action="{% url 'save' %}" method="POST">
+<form action="{% url 'create_full' %}" method="POST">
 
     {% csrf_token %}
 
