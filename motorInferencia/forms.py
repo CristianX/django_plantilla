@@ -1,4 +1,5 @@
 from django import forms
+from django.core import validators
 
 
 class FormArticle(forms.Form):
@@ -9,6 +10,12 @@ class FormArticle(forms.Form):
         widget=forms.TextInput(
             attrs={"placeholder": "Escribe el título", "class": "titulo_form_article"}
         ),
+        validators=[
+            validators.MinLengthValidator(4, "El título es demasiado corto"),
+            validators.RegexValidator(
+                "^[A-Za-z0-9 ñ]*$", "El título está mal formado", "invalid_title"
+            ),
+        ],
     )
 
     content = forms.CharField(
@@ -20,6 +27,9 @@ class FormArticle(forms.Form):
                 "id": "contendio_form",
             }
         ),
+        validators= [
+            validators.MaxLengthValidator(20, 'Te haz pasado, solo 20 carácteres')
+        ]
     )
     # content.widget.attrs.update(
     #     {

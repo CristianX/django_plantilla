@@ -57,6 +57,10 @@
 
 }
 
+.rojo{
+    color: red;
+}
+
 .box form input[type="submit"]:hover,
 .box form input[type="button"]:hover,
 .box form button:hover{
