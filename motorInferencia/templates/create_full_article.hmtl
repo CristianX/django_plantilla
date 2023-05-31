@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+<!-- Cargando bloque del titulo -->
+
+{% block title %} Formularios en Django {% endblock %}
+
+<!-- Cargando contenido del bloque content -->
+
+{% block content %}
+
+<h1 class="title">Formularios en Django</h1>
+
+<form action="{% url 'save' %}" method="POST">
+
+    {% csrf_token %}
+
+    {{ form }}
+
+    <input type="submit" value="Guardar"/>
+
+</form>
+
+{% endblock %}
