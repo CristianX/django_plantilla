@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from motorInferencia.models import Article
 from django.db.models import Q
 from motorInferencia.forms import FormArticle
+from django.contrib import messages
 
 # Create your views here.
 
@@ -195,6 +196,9 @@ def create_full_article(request):
             )
 
             articulo.save()
+
+            # Crear mensaje flash (sesion que solo se muestra una vez)
+            messages.success(request, f'Has creado correctamente el artículo {articulo.id}')
 
             return redirect('articulos')
             # return HttpResponse(f"Articulo Creado: <strong>{articulo.title}</strong> - {articulo.content}")
