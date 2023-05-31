@@ -14,7 +14,8 @@
 
     {% csrf_token %}
 
-    {{ form }}
+    {% comment %} {{ form.as_ul }} {% endcomment %}
+    {{ form.as_p }}
 
     <input type="submit" value="Guardar"/>
 
