@@ -125,14 +125,12 @@ def editar_articulo(request, id):
 def articulos(request):
     # articulos = Article.objects.order_by('-title')[:3]
     # articulos = Article.objects.order_by('-title')[3:7]
-    articulos = Article.objects.all()
+    articulos = Article.objects.all().order_by("-id")
 
-    articulos = Article.objects.filter(id__gte=7)
-    articulos = Article.objects.filter(id__lte=7, title__contains="articulo")
+    # articulos = Article.objects.filter(id__gte=7)
+    # articulos = Article.objects.filter(id__lte=7, title__contains="articulo")
 
-    articulos = Article.objects.filter(
-        Q(title__contains = "2") | Q(public = True)
-    )
+    articulos = Article.objects.filter(Q(title__contains="2") | Q(public=True))
 
     # articulos = Article.objects.filter(
     #     title = "Articulo",
@@ -154,3 +152,25 @@ def borrar_articulo(request, id):
     articulo.delete()
 
     return redirect("articulos")
+
+
+def save_article(request):
+    if request.method == "POST":
+        title = request.POST["title"]
+        if len(title) <= 5:
+            return HttpResponse("El título es muy pequeño")
+
+        content = request.POST["content"]
+        public = request.POST["public"]
+
+        articulo = Article(title=title, content=content, public=public)
+        articulo.save()
+        return HttpResponse(
+            f"Articulo Creado: <strong>{articulo.title}</strong> - {articulo.content}"
+        )
+    else:
+        return HttpResponse("<h2>No se ha podido crear el artículo</h2>")
+
+
+def create_article(request):
+    return render(request, "create_article.html")

@@ -35,4 +35,6 @@ urlpatterns = [
     path("editar-articulo/<int:id>", motorInferencia.views.editar_articulo),
     path("articulos", motorInferencia.views.articulos, name="articulos"),
     path("borrar-articulo/<int:id>", motorInferencia.views.borrar_articulo, name="borrar"),
+    path("save-article/", motorInferencia.views.save_article, name="save"),
+    path("create-article/", motorInferencia.views.create_article, name="create"),
 ]
